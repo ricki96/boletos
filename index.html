@@ -1,0 +1,83 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>Boletos ADO</title>
+<link href="jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css"/>
+<script src="jquery-1.6.4.min.js" type="text/javascript"></script>
+<script src="jquery.mobile-1.0.min.js" type="text/javascript"></script>
+<script>
+var total=0;
+function total1(){
+	costo=parseFloat(document.getElementById("txtCosto").value);
+	opcion=document.getElementById("txtOp").value;
+	
+
+	switch(opcion){
+		case '1':
+		case '2':
+		case '3':
+		total=costo/2;
+		/*if(isNaN(txtOp)){
+		alert("No existe")
+	}*/
+		document.getElementById("txtResul").value=total;
+		break;
+		case '4':
+		total=costo*0.25;
+		total=costo-total;
+		/*if(isNaN(txtOp)){
+		alert("No existe")
+	}*/
+		document.getElementById("txtResul").value=total;
+		break;
+		default: alert("No existe la opcion");
+		document.getElementById("txtOp").value="";
+		document.getElementById("txtCosto").value="";
+		document.getElementById("txtResul").value="";
+		break;
+	}
+}
+	</script>
+</head> 
+<body> 
+
+<div data-role="page" id="page">
+	<div data-role="header">
+		<h1>ADO</h1>
+	</div>
+	<div data-role="content">	
+		<ul data-role="listview">
+		  <div data-role="fieldcontain">
+		    <label for="textinput">Introduzca el valor del boleto:</label>
+		    <input type="text" name="txtCosto" id="txtCosto" value=""  />
+	      </div>
+		<ul>
+        <li>1.Niño</li>
+        <li>2.Estudiante</li>
+        <li>3.Adulto mayor</li>
+        <li>4.Profesor</li>	
+		</ul>
+        </div>
+         <div data-role="fieldcontain">
+        <label for="textinput">Seleccione la opcion deseada:</label>
+		<input type="text" name="txtOp" id="txtOp" value=""  />
+	      
+		<div data-role="fieldcontain">
+		  <label for="textinput">Costo del Boleto:</label>
+		  <input type="text" name="txtResul" id="txtResul" value="" 			disabled="disabled" />
+			    
+          
+		  </div>
+		<button onClick="total1()">Calcular</button>
+          
+        		
+        </ul>
+	</div>
+	<div data-role="footer">
+		<h4>Autor: Richie Huezca</h4>
+	</div>
+</div>
+
+</body>
+</html>
